@@ -15,5 +15,8 @@ class UserController extends Controller
     function setting(){
         return view('dashboard.user.setting');
     }
+    function add(){
+        return view('dashboard.user.add');
+    }
 
 }
