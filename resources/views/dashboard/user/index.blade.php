@@ -60,8 +60,8 @@
                     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
 
-                            <a class="collapse-item" href="{{route('user.add')}}">Add</a>
-                            <a class="collapse-item" href="#l">Manage</a>
+                            <a class="collapse-item" href="{{url('/add')}}">Add</a>
+                            <a class="collapse-item" href="{{url('/add')}}">Manage</a>
                         </div>
                     </div>
                 </li>
@@ -77,8 +77,8 @@
                          data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
                             <h6 class="collapse-header">Custom Utilities:</h6>
-                            <a class="collapse-item" href="#">Add</a>
-                            <a class="collapse-item" href="#">Manage</a>
+                            <a class="collapse-item" href="{{url('user/dashboard')}}">Add</a>
+                            <a class="collapse-item" href="{{url('user/dashboard')}}">Manage</a>
 
                         </div>
                     </div>
@@ -86,6 +86,7 @@
 
                 <!-- Divider -->
                 <hr class="sidebar-divider">
+
 
 
 
@@ -128,7 +129,7 @@
                         </form>
 
                         <!-- Topbar Navbar -->
-                        <ul class="navbar-nav ml-auto">
+                        <ul  class="navbar-nav ml-auto">
 
                             <!-- Nav Item - Search Dropdown (Visible Only XS) -->
                             <li class="nav-item dropdown no-arrow d-sm-none">
@@ -154,16 +155,25 @@
                                 </div>
                             </li>
 
+                            <div class="topbar-divider d-none d-sm-block"></div>
 
                             <!-- Nav Item - User Information -->
+
+                            <!-- Nav Item - User Information -->
+                            <div class="bg-white py-2 collapse-inner rounded">
+                                <a class="collapse-item" href="{{url('/profile')}}">profile</a>
+                            </div>
+
                             <li class="nav-item dropdown no-arrow">
-                                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                <a class="nav-link dropdown-toggle" id="userDropdown" role="button"
                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <span
                                         class="mr-2 d-none d-lg-inline text-gray-600 small">{{Auth::user()->name}}</span>
                                     <img class="img-profile rounded-circle"
                                          src="{{ asset('template/img/undraw_profile.svg') }}">
                                 </a>
+
+
                                 <!-- Dropdown - User Information -->
                                 <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                      aria-labelledby="userDropdown">
@@ -186,6 +196,20 @@
                                     </a>
                                 </div>
                             </li>
+
+                                <a class="" href="{{ route('logout') }}"
+                                   onclick="event.preventDefault();
+                                                                 document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+
+
+
+
 
                         </ul>
 
@@ -338,65 +362,7 @@
                                                 </table>
                                             </div>
                                         </div>
-                                        <div class="row">
-                                            <div class="col-sm-12 col-md-5">
-                                                <div class="dataTables_info" id="dataTable_info" role="status"
-                                                     aria-live="polite">Showing 1 to 10 of 57 entries
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-12 col-md-7">
-                                                <div class="dataTables_paginate paging_simple_numbers"
-                                                     id="dataTable_paginate">
-                                                    <ul class="pagination">
-                                                        <li class="paginate_button page-item previous disabled"
-                                                            id="dataTable_previous"><a href="#"
-                                                                                       aria-controls="dataTable"
-                                                                                       data-dt-idx="0" tabindex="0"
-                                                                                       class="page-link">Previous</a>
-                                                        </li>
-                                                        <li class="paginate_button page-item active"><a href="#"
-                                                                                                        aria-controls="dataTable"
-                                                                                                        data-dt-idx="1"
-                                                                                                        tabindex="0"
-                                                                                                        class="page-link">1</a>
-                                                        </li>
-                                                        <li class="paginate_button page-item "><a href="#"
-                                                                                                  aria-controls="dataTable"
-                                                                                                  data-dt-idx="2"
-                                                                                                  tabindex="0"
-                                                                                                  class="page-link">2</a>
-                                                        </li>
-                                                        <li class="paginate_button page-item "><a href="#"
-                                                                                                  aria-controls="dataTable"
-                                                                                                  data-dt-idx="3"
-                                                                                                  tabindex="0"
-                                                                                                  class="page-link">3</a>
-                                                        </li>
-                                                        <li class="paginate_button page-item "><a href="#"
-                                                                                                  aria-controls="dataTable"
-                                                                                                  data-dt-idx="4"
-                                                                                                  tabindex="0"
-                                                                                                  class="page-link">4</a>
-                                                        </li>
-                                                        <li class="paginate_button page-item "><a href="#"
-                                                                                                  aria-controls="dataTable"
-                                                                                                  data-dt-idx="5"
-                                                                                                  tabindex="0"
-                                                                                                  class="page-link">5</a>
-                                                        </li>
-                                                        <li class="paginate_button page-item "><a href="#"
-                                                                                                  aria-controls="dataTable"
-                                                                                                  data-dt-idx="6"
-                                                                                                  tabindex="0"
-                                                                                                  class="page-link">6</a>
-                                                        </li>
-                                                        <li class="paginate_button page-item next" id="dataTable_next">
-                                                            <a href="#" aria-controls="dataTable" data-dt-idx="7"
-                                                               tabindex="0" class="page-link">Next</a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -422,4 +388,6 @@
             <!-- End of Page Wrapper -->
 
         </div>
+
+
 @endsection

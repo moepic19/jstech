@@ -60,8 +60,8 @@
                     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
 
-                            <a class="collapse-item" href="#">Add</a>
-                            <a class="collapse-item" href="#l">Manage</a>
+                            <a class="collapse-item" href="{{url('/add')}}">Add</a>
+                            <a class="collapse-item" href="{{url('/add')}}">Manage</a>
                         </div>
                     </div>
                 </li>
@@ -77,8 +77,8 @@
                          data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
                             <h6 class="collapse-header">Custom Utilities:</h6>
-                            <a class="collapse-item" href="#">Add</a>
-                            <a class="collapse-item" href="#">Manage</a>
+                            <a class="collapse-item" href="{{url('user/dashboard')}}">Add</a>
+                            <a class="collapse-item" href="{{url('user/dashboard')}}">Manage</a>
 
                         </div>
                     </div>
@@ -222,31 +222,43 @@
                                         </div>
                                         <div class="modal-body">
                                             <div class="mb-3">
-                                                <label for="exampleFormControlInput1" class="form-label">Customer Name</label>
+                                                <label for="exampleFormControlInput1" class="form-label">Full Name</label>
                                                 <input type="name" class="form-control" id="exampleFormControlInput1" placeholder="Mohammed Mushi">
                                             </div>
                                             <div class="mb-3">
-                                                <label for="exampleFormControlInput1" class="form-label">Product ID</label>
-                                                <input type="pname" class="form-control" id="exampleFormControlInput1" placeholder="Dell Latitude E4345">
+                                                <label for="exampleFormControlInput1" class="form-label">Username</label>
+                                                <input type="uname" class="form-control" id="exampleFormControlInput1" placeholder="broscorp">
                                             </div>
                                             <div class="mb-3">
-                                                <label for="exampleFormControlInput1" class="form-label">Service</label>
-                                                <input type="service" class="form-control" id="exampleFormControlInput1" placeholder="Battery Replacement">
+                                                <label for="exampleFormControlInput1" class="form-label">E-Mail</label>
+                                                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="brosmushi@gmail.com">
                                             </div>
                                             <div class="mb-3">
-                                                <label for="exampleFormControlTextarea1" class="form-label">Remark</label>
-                                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Optional"></textarea>
+                                                <label for="exampleFormControlInput1" class="form-label">Phone No.</label>
+                                                <input type="phone" class="form-control" id="exampleFormControlInput1" placeholder="+255 719 710 293">
                                             </div>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                                <label class="form-check-label" for="flexCheckDefault">
-                                                    Completion
-                                                </label>
+                                            <div class="mb-3">
+                                                <label for="exampleFormControlInput1" class="form-label">Password</label>
+                                                <input type="password" class="form-control" id="exampleFormControlInput1" placeholder="Password">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="exampleFormControlInput1" class="form-label">Repeat Password</label>
+                                                <input type="password" class="form-control" id="exampleFormControlInput1" placeholder="Password">
+                                            </div>
+                                            <div class="dropdown">
+                                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                                    Gender
+                                                </button>
+                                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                                    <li><a class="dropdown-item" href="#">Male</a></li>
+                                                    <li><a class="dropdown-item" href="#">Female</a></li>
+                                                    <li><a class="dropdown-item" href="#">Other</a></li>
+                                                </ul>
                                             </div>
                                         </div>
                                         <div class="modal-footer">
                                             <button class="btn btn-primary" data-bs-target="#exampleModalToggle2"
-                                                    data-bs-toggle="modal" data-bs-dismiss="modal">Submit
+                                                    data-bs-toggle="modal" data-bs-dismiss="modal">Add
                                             </button>
                                         </div>
                                     </div>
@@ -305,18 +317,14 @@
                                                         <th class="sorting" tabindex="0" aria-controls="dataTable"
                                                             rowspan="1" colspan="1"
                                                             aria-label="Office: activate to sort column ascending"
-                                                            style="width: 206px;">Service
+                                                            style="width: 206px;">Phone
                                                         </th>
                                                         <th class="sorting" tabindex="0" aria-controls="dataTable"
                                                             rowspan="1" colspan="1"
                                                             aria-label="Age: activate to sort column ascending"
-                                                            style="width: 105px;">Remark
+                                                            style="width: 105px;">Status
                                                         </th>
-                                                        <th class="sorting" tabindex="0" aria-controls="dataTable"
-                                                            rowspan="1" colspan="1"
-                                                            aria-label="Start date: activate to sort column ascending"
-                                                            style="width: 196px;">Completion
-                                                        </th>
+
                                                         <th class="sorting" tabindex="0" aria-controls="dataTable"
                                                             rowspan="1" colspan="1"
                                                             aria-label="Salary: activate to sort column ascending"
@@ -327,76 +335,13 @@
 
                                                     <tbody>
                                                     <tr class="odd">
-                                                        <td class="sorting_1">Airi Satou</td>
-                                                        <td>Accountant</td>
-                                                        <td>Tokyo</td>
-                                                        <td>33</td>
-                                                        <td>2008/11/28</td>
-                                                        <td>$162,700</td>
+                                                        <td></td>
                                                     </tr>
                                                     </tbody>
                                                 </table>
                                             </div>
                                         </div>
-                                        <div class="row">
-                                            <div class="col-sm-12 col-md-5">
-                                                <div class="dataTables_info" id="dataTable_info" role="status"
-                                                     aria-live="polite">Showing 1 to 10 of 57 entries
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-12 col-md-7">
-                                                <div class="dataTables_paginate paging_simple_numbers"
-                                                     id="dataTable_paginate">
-                                                    <ul class="pagination">
-                                                        <li class="paginate_button page-item previous disabled"
-                                                            id="dataTable_previous"><a href="#"
-                                                                                       aria-controls="dataTable"
-                                                                                       data-dt-idx="0" tabindex="0"
-                                                                                       class="page-link">Previous</a>
-                                                        </li>
-                                                        <li class="paginate_button page-item active"><a href="#"
-                                                                                                        aria-controls="dataTable"
-                                                                                                        data-dt-idx="1"
-                                                                                                        tabindex="0"
-                                                                                                        class="page-link">1</a>
-                                                        </li>
-                                                        <li class="paginate_button page-item "><a href="#"
-                                                                                                  aria-controls="dataTable"
-                                                                                                  data-dt-idx="2"
-                                                                                                  tabindex="0"
-                                                                                                  class="page-link">2</a>
-                                                        </li>
-                                                        <li class="paginate_button page-item "><a href="#"
-                                                                                                  aria-controls="dataTable"
-                                                                                                  data-dt-idx="3"
-                                                                                                  tabindex="0"
-                                                                                                  class="page-link">3</a>
-                                                        </li>
-                                                        <li class="paginate_button page-item "><a href="#"
-                                                                                                  aria-controls="dataTable"
-                                                                                                  data-dt-idx="4"
-                                                                                                  tabindex="0"
-                                                                                                  class="page-link">4</a>
-                                                        </li>
-                                                        <li class="paginate_button page-item "><a href="#"
-                                                                                                  aria-controls="dataTable"
-                                                                                                  data-dt-idx="5"
-                                                                                                  tabindex="0"
-                                                                                                  class="page-link">5</a>
-                                                        </li>
-                                                        <li class="paginate_button page-item "><a href="#"
-                                                                                                  aria-controls="dataTable"
-                                                                                                  data-dt-idx="6"
-                                                                                                  tabindex="0"
-                                                                                                  class="page-link">6</a>
-                                                        </li>
-                                                        <li class="paginate_button page-item next" id="dataTable_next">
-                                                            <a href="#" aria-controls="dataTable" data-dt-idx="7"
-                                                               tabindex="0" class="page-link">Next</a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
+
                                     </div>
                                 </div>
                             </div>

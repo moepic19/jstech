@@ -21,8 +21,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
-
+Route::middleware(['middleware'=>'PreventBackHistory'])->group(function (){
+    Auth::routes();
+});
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
@@ -35,9 +36,19 @@ Route::group(['prefix'=>'admin', 'middleware'=>['isAdmin'=>'auth','PreventBackHi
 
 Route::group(['prefix'=>'user', 'middleware'=>['isUser'=>'auth','PreventBackHistory']], function(){
     Route::get('dashboard',[UserController::class,'index'])->name('user.dashboard');
-    Route::get('profile',[UserController::class,'index'])->name('user.profile');
+    //Route::get('profile',[UserController::class,'index'])->name('user.profile');
     Route::get('setting',[UserController::class,'index'])->name('user.setting');
-    Route::get('add',[UserController::class,'index'])->name('user.add');
+    //Route::get('add',[UserController::class,'index'])->name('user.add');
+    Route::post('update-profile-info',[AdminController::class,'updateInfo'])->name('adminUpdateInfo');
 
 });
 
+Route::get('/add', function () {
+   return view('dashboard/user/add');
+});
+
+Route::get('/profile', function () {
+    return view('dashboard/user/profile');
+});
+
+Route::post('profile/store','UserProfileController@store')->name('profile.store');
